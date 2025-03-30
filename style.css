@@ -1,0 +1,371 @@
+/* Custom skin inspired by early 2000s media players */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #000;
+    background-image: linear-gradient(45deg, #000011, #001133);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Main player container with custom shape */
+  .player-container {
+    width: 800px;
+    height: 400px;
+    display: flex;
+    position: relative;
+    user-select: none;
+    cursor: default;
+    -webkit-app-region: drag;
+  }
+  
+  /* Left control section (circular part) */
+  .control-section {
+    width: 300px;
+    height: 400px;
+    background: radial-gradient(circle at 50% 40%, #4a5a8f, #192042);
+    border: 2px solid #000;
+    border-radius: 50% 0 0 50%;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 255, 0.4);
+    overflow: visible;
+    z-index: 2;
+  }
+  
+  /* Right visualizer section (custom shape) */
+  .visualizer-section {
+    flex: 1;
+    height: 100%;
+    background: linear-gradient(135deg, #05001a 0%, #2a0058 50%, #50008c 100%);
+    border: 2px solid #000;
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+    position: relative;
+    box-shadow: 0 0 30px rgba(153, 0, 255, 0.4);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Glossy overlay effect */
+  .control-section::after,
+  .visualizer-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to bottom, 
+      rgba(255, 255, 255, 0.2) 0%, 
+      rgba(255, 255, 255, 0.1) 40%, 
+      rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  
+  /* Player branding */
+  .player-branding {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(130, 220, 255, 0.8);
+  }
+  
+  .logo-text {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  
+  .logo-subtitle {
+    font-size: 12px;
+    opacity: 0.7;
+    letter-spacing: 1px;
+  }
+  
+  /* Window control dots */
+  .window-controls {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 8px;
+    -webkit-app-region: no-drag;
+  }
+  
+  .control-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    -webkit-app-region: no-drag;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  #minimizeBtn {
+    background: radial-gradient(circle at 40% 40%, #ffff00, #cc9900);
+  }
+  
+  #closeBtn {
+    background: radial-gradient(circle at 40% 40%, #ff3333, #cc0000);
+  }
+  
+  .control-dot:hover {
+    filter: brightness(1.2);
+  }
+  
+  /* Main control circle */
+  .control-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #626D9E, #242B54);
+    border: 6px solid #1A1F3D;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-app-region: no-drag;
+  }
+  
+  /* Inner circle - simplified for design only now */
+  .inner-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #FFE258, #FFA500);
+    border: 4px solid #242B54;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* NEW - Outer ring controls */
+  .outer-ring-controls {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+  .outer-btn {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #7AFFBF, #00CC66);
+    border: 3px solid #1A1F3D;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6), 
+                inset 0 0 10px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #1A1F3D;
+    font-weight: bold;
+    z-index: 5;
+    transition: all 0.2s ease;
+  }
+  
+  .outer-btn:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+  }
+  
+  .outer-btn:active {
+    transform: scale(0.95);
+    filter: brightness(0.9);
+  }
+  
+  /* Position the outer ring buttons */
+  .outer-btn[data-position="top"] {
+    top: -21px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .outer-btn[data-position="bottom"] {
+    bottom: -21px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle at 30% 30%, #FF8A8A, #FF3333);
+  }
+  
+  /* Mode buttons */
+  .mode-buttons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+  .mode-btn {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #7A8AD3, #4A5A8F);
+    border: 2px solid #1A1F3D;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .mode-btn:hover {
+    filter: brightness(1.2);
+  }
+  
+  .mode-btn[data-position="left"] {
+    top: 50%;
+    left: -16px;
+    transform: translateY(-50%);
+  }
+  
+  .mode-btn[data-position="right"] {
+    top: 50%;
+    right: -16px;
+    transform: translateY(-50%);
+  }
+  
+  /* Volume control */
+  .volume-container {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    -webkit-app-region: no-drag;
+    color: white;
+  }
+  
+  .volume-icon {
+    width: 20px;
+    text-align: center;
+  }
+  
+  .volume-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(to right, #1A1F3D, #242B54);
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #FFE258, #FFA500);
+    border: 2px solid #242B54;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+  
+  /* Track info display */
+  .track-info {
+    height: 40px;
+    background: linear-gradient(to right, #1a0035, #35006b);
+    border-bottom: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px;
+    color: #e5bbff;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px #bf00ff;
+  }
+  
+  marquee {
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+  
+  /* Visualizer display */
+  .visualizer-display {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #visualizer {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  /* Progress bar */
+  .progress-container {
+    height: 10px;
+    background: #14002e;
+    border-top: 1px solid #000;
+    position: relative;
+    cursor: pointer;
+    -webkit-app-region: no-drag;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, #9900cc, #cc00ff);
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 10px rgba(204, 0, 255, 0.6);
+  }
+  
+  /* Animation for visualizer glow */
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 20px rgba(153, 0, 255, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(153, 0, 255, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 20px rgba(153, 0, 255, 0.4);
+    }
+  }
+  
+  .visualizer-display {
+    animation: glow 3s infinite ease-in-out;
+  }

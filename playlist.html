@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlist</title>
+  <link rel="stylesheet" href="playlist.css">
+</head>
+<body>
+  <!-- Playlist window container -->
+  <div class="playlist-container">
+    <!-- Playlist header -->
+    <div class="playlist-header">
+      <div class="playlist-title">MY PLAYLIST</div>
+      <div class="window-controls">
+        <button id="minimizeBtn" class="control-dot">_</button>
+        <button id="closeBtn" class="control-dot">×</button>
+      </div>
+    </div>
+    
+    <!-- Playlist content -->
+    <div class="playlist-content">
+      <div class="playlist-controls">
+        <button id="addFilesBtn" class="playlist-btn">+ Add Files</button>
+        <button id="clearPlaylistBtn" class="playlist-btn">Clear All</button>
+        <div class="playlist-search">
+          <input type="text" id="searchInput" placeholder="Search...">
+        </div>
+      </div>
+      
+      <!-- Playlist items container -->
+      <div class="playlist-items" id="playlistItems">
+        <!-- Playlist items will be added here -->
+        <div class="playlist-empty">No tracks added yet</div>
+      </div>
+    </div>
+    
+    <!-- Visualizer selector -->
+    <div class="visualizer-selector">
+      <div class="selector-title">VISUALIZER STYLES</div>
+      <div class="visualizer-options">
+        <button class="viz-option active" data-viz="flame">Flame</button>
+        <button class="viz-option" data-viz="bars">Bars</button>
+        <button class="viz-option" data-viz="wave">Wave</button>
+        <button class="viz-option" data-viz="particles">Particles</button>
+        <button class="viz-option" data-viz="spectrum">Spectrum</button>
+        <button class="viz-option" data-viz="orbit">Orbit</button>
+        <button class="viz-option" data-viz="retro">Retro</button>
+        <button class="viz-option" data-viz="plasma">Plasma</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="playlist.js"></script>
+</body>
+</html>

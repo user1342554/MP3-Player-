@@ -1,0 +1,65 @@
+{
+  "name": "jonas-mp3-player",
+  "productName": "Jonas MP3 Player",
+  "version": "1.0.0",
+  "description": "A stylish MP3 player with trippy visualizers",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist-win": "electron-builder --windows"
+  },
+  "build": {
+    "appId": "com.jonas.mp3player",
+    "productName": "Jonas MP3 Player",
+    "copyright": "Copyright © 2025 Jonas",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/**/*",
+      "!build/**/*",
+      "!node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        "portable",
+        "nsis"
+      ],
+      "icon": "icon.ico",
+      "fileAssociations": [
+        {
+          "ext": [
+            "mp3",
+            "wav",
+            "ogg",
+            "flac",
+            "m4a"
+          ],
+          "description": "Audio Files",
+          "role": "Editor",
+          "icon": "icon.ico"
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Jonas MP3 Player"
+    },
+    "portable": {
+      "artifactName": "Jonas-MP3-Player-Portable.exe"
+    }
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  },
+  "devDependencies": {
+    "electron": "^25.0.0",
+    "electron-builder": "^24.13.3"
+  }
+}
